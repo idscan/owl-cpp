@@ -1,10 +1,10 @@
 # owlcpp/jamroot.jam
 # part of owlcpp project.
 # Distributed under the Boost Software License, Version 1.0; see doc/license.txt.
-# Copyright Mikhail K Levin 2010-5
+# Copyright Mikhail K Levin 2010-6
 
-import build/singleton-target ;
-import build/version ;
+import singleton-target ;
+import version-tools ;
 
 path-constant PROJ_ROOT : . ;
 path-constant INCLUDE : include ;

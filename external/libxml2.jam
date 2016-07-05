@@ -91,7 +91,7 @@ rule copy-headers ( version : location ) {
    }
    
    make-singleton config.h 
-      : $(PROJ_ROOT)/external/ext/libxml2_config.h 
+      : $(PROJ_ROOT)/external/libxml2_config.h 
       : @config_h
       : <version>$(version) <location>$(lib-dir)
    ;

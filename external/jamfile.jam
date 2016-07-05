@@ -14,7 +14,7 @@ if ! $(RAPTOR) {
    Please set variable RAPTOR in user-config.jam to location and version of Raptor library.
    " ;
 }
-using ext/raptor : $(RAPTOR[2]) : $(RAPTOR[1]) ;
+using raptor : $(RAPTOR[2]) : $(RAPTOR[1]) ;
 alias raptor : /ext/raptor//raptor ;
 # alias raptor_pic : /ext/raptor//raptor : <link>static <pic>on ;
 
@@ -41,7 +41,7 @@ if [ numbers.less
    " ;
 }
 
-using ext/factpp : $(FACTPP[2]) : $(FACTPP[1]) ;
+using factpp : $(FACTPP[2]) : $(FACTPP[1]) ;
 alias factpp_kernel 
    : /ext/factpp//factpp_kernel 
 ;
@@ -58,5 +58,5 @@ if ! $(LIBXML2) {
    " ;
 }
 
-using ext/libxml2 : $(LIBXML2[2]) : $(LIBXML2[1]) ;
+using libxml2 : $(LIBXML2[2]) : $(LIBXML2[1]) ;
 alias libxml2 : /ext/libxml2//libxml2 ;
