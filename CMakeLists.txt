@@ -4,8 +4,6 @@
 
 cmake_minimum_required(VERSION 3.0)
 
-project(owlcpp VERSION 0.3.3.97)
-
 # global definition
 set(CMAKE_CXX_STANDARD 11)
 
@@ -20,6 +18,25 @@ HunterGate(
     URL "xxxxxxxxxx"
     SHA1 "xxxxxxxxxx"
 )
+
+project(owlcpp VERSION 0.3.3.97)
+
+# Handle flags for different boost versions
+if("${HUNTER_Boost_VERSION}" STREQUAL "")
+    if(NOT HUNTER_FINALIZED)
+        include(hunter_finalize)
+        hunter_finalize()
+        set(HUNTER_FINALIZED TRUE)
+    endif()
+endif()
+if(HUNTER_Boost_VERSION VERSION_LESS "1.72.0")
+    add_definitions( -DBOOST_ALL_NO_LIB )
+else()
+    # Boost package now sets the ALL_NO_LIB internally but needs to be
+    # told to use static libraries as the default has changed to shared.
+    set(Boost_USE_STATIC_LIBS ON)
+endif()
+
 
 hunter_add_package(Boost COMPONENTS system)
 find_package(Boost CONFIG REQUIRED system)
