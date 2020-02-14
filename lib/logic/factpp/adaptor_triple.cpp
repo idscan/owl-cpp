@@ -12,7 +12,7 @@ part of owlcpp project.
 #include "boost/assert.hpp"
 
 #include "owlcpp/rdf/query_triples.hpp"
-#include "factpp/Kernel.hpp"
+#include "factplusplus/Kernel/Kernel.h"
 #include "expression.hpp"
 #include "obj_type.hpp"
 #include "obj_property.hpp"

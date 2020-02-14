@@ -9,7 +9,7 @@ part of owlcpp project.
 #include "owlcpp/rdf/triple_store.hpp"
 #include "owlcpp/rdf/print_node.hpp"
 #include "owlcpp/detail/datatype_impl.hpp"
-#include "factpp/Kernel.hpp"
+#include "factplusplus/Kernel/Kernel.h"
 
 namespace owlcpp{ namespace logic{ namespace factpp{
 using namespace owlcpp::terms;

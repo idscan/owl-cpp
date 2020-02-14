@@ -12,7 +12,7 @@ part of owlcpp project.
 #include "logic/node_property_declaration.hpp"
 #include "logic/node_type_declaration.hpp"
 #include "logic/find_node_declaration.hpp"
-#include "factpp/Kernel.hpp"
+#include "factplusplus/Kernel/Kernel.h"
 
 namespace owlcpp{ namespace logic{ namespace factpp{
 using namespace owlcpp::terms;

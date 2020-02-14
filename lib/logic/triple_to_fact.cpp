@@ -8,7 +8,7 @@ part of owlcpp project.
 #endif
 #include "owlcpp/logic/triple_to_fact.hpp"
 #include "boost/foreach.hpp"
-#include "factpp/Kernel.hpp"
+#include "factplusplus/Kernel/Kernel.h"
 #include "owlcpp/logic/detail/triple_to_fact_adaptor.hpp"
 #include "owlcpp/rdf/triple_store.hpp"
 #include "owlcpp/rdf/print_triple.hpp"

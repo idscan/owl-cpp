@@ -7,6 +7,7 @@ part of owlcpp project.
 #define CRTPB_NS_NODE_IRI_HPP_
 #include "owlcpp/detail/map_traits.hpp"
 #include "owlcpp/exception.hpp"
+#include "owlcpp/ns_id.hpp"
 #include "owlcpp/node_id.hpp"
 #include "owlcpp/rdf/ns_iri.hpp"
 #include "owlcpp/rdf/store_concepts.hpp"

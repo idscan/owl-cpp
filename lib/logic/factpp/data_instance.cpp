@@ -4,7 +4,7 @@ part of owlcpp project.
 @n Copyright Mikhail K Levin 2013
 *******************************************************************************/
 #include "data_instance.hpp"
-#include "factpp/Kernel.hpp"
+#include "factplusplus/Kernel/Kernel.h"
 #include "owlcpp/rdf/node_literal.hpp"
 
 namespace owlcpp{ namespace logic{ namespace factpp{

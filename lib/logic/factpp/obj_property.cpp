@@ -4,7 +4,7 @@ part of owlcpp project.
 @n Copyright Mikhail K Levin 2013
 *******************************************************************************/
 #include "obj_property.hpp"
-#include "factpp/Kernel.hpp"
+#include "factplusplus/Kernel/Kernel.h"
 #include "boost/assert.hpp"
 #include "owlcpp/rdf/triple_store.hpp"
 #include "owlcpp/rdf/print_node.hpp"

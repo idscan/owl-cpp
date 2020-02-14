@@ -9,7 +9,7 @@ part of owlcpp project.
 #include "owlcpp/terms/node_tags_system.hpp"
 #include "owlcpp/rdf/triple_store.hpp"
 #include "owlcpp/rdf/query_triples.hpp"
-#include "factpp/Kernel.hpp"
+#include "factplusplus/Kernel/Kernel.h"
 
 namespace owlcpp{ namespace logic{ namespace factpp{
 using namespace owlcpp::terms;

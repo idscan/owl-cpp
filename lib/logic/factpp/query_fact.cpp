@@ -9,7 +9,7 @@ part of owlcpp project.
 #include "owlcpp/logic/reasoner/query_fact.hpp"
 #include "boost/assert.hpp"
 #include "boost/shared_ptr.hpp"
-#include "factpp/Kernel.hpp"
+#include "factplusplus/Kernel/Kernel.h"
 #include "owlcpp/logic/exception.hpp"
 #include "owlcpp/terms/term_methods.hpp"
 #include "owlcpp/terms/node_tags_owl.hpp"
