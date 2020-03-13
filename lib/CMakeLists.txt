@@ -24,8 +24,6 @@ target_compile_definitions(${LIBRARY_NAME} PRIVATE
     "OWLCPP_VERSION_DIRTY=0"
 )
 
-target_link_libraries(${LIBRARY_NAME} Boost::boost)
-
 # Generate public header list.
 file(GLOB LIBRARY_HEADER_FILES
     "${PROJECT_INCLUDE_DIR}/${PROJECT_NAME}/*.hpp"
