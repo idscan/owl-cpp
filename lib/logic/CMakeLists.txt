@@ -44,7 +44,6 @@ target_include_directories(${LIBRARY_NAME} PUBLIC
     $<INSTALL_INTERFACE:> # Project level include directory will do.
 )
 target_link_libraries(${LIBRARY_NAME} PUBLIC
-    Boost::boost
     Boost::system
 )
 target_link_libraries(${LIBRARY_NAME} PRIVATE
