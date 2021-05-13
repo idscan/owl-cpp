@@ -39,7 +39,7 @@ public:
    typedef Node_id id_type;
    typedef Node node_type;
 private:
-   typedef std::auto_ptr<node_type> ptr_t;
+   typedef std::unique_ptr<node_type> ptr_t;
    typedef boost::ptr_vector<boost::nullable<Node> > vector_t;
    typedef boost::unordered_map<
             Node const*,
@@ -192,7 +192,7 @@ public:
       return insert(Node_blank(n, doc));
    }
 
-   std::auto_ptr<Node> remove(const Node_id id) {
+   std::unique_ptr<Node> remove(const Node_id id) {
       BOOST_ASSERT(find(id));
       const std::size_t n = map_.erase(&get(id));
       boost::ignore_unused_variable_warning(n);
