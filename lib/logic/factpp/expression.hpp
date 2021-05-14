@@ -64,7 +64,7 @@ template<class T> struct Expression {
    struct Err : public Logic_err {};
    typedef Expression self_t;
    typedef T expression_type;
-   typedef std::auto_ptr<self_t> ptr_t;
+   typedef std::unique_ptr<self_t> ptr_t;
    typedef typename expression_type::fact_type generated_t;
    virtual generated_t get(ReasoningKernel& k) const  = 0;
    virtual std::string string() const {return "Expression";}

@@ -6,6 +6,7 @@ part of owlcpp project.
 #ifndef OBJECT_ID_BASE_HPP_
 #define OBJECT_ID_BASE_HPP_
 #include <iosfwd>
+#include <cstddef>
 #include "boost/cstdint.hpp"
 
 namespace owlcpp{ namespace detail{
