@@ -81,7 +81,7 @@ class Tiv_query_dispatch {
    typedef typename config::id_type id_type;
    typedef typename config::value_type value_type;
 
-   class Equal : public std::unary_function<value_type, bool> {
+   class Equal {
    public:
       explicit Equal(const Q0 q) : q_(q) {}
       bool operator()(value_type const& p) const {return p.first == q_;}
