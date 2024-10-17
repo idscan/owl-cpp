@@ -17,10 +17,9 @@ endif()
 
 hunter_add_package(raptor2)
 find_package(raptor2 CONFIG REQUIRED)
-if(NOT TARGET libxml2::libxml2)
+
 hunter_add_package(libxml2)
 find_package(LibXml2 REQUIRED) # abnormal case in hunter, finds libxml2::libxml2
-endif()
 
 ###############################################################################
 # Target settings
