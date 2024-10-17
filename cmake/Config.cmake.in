@@ -8,8 +8,10 @@ set(@PROJECT_NAME@_BUILT_IO @BUILD_IO@)
 set(@PROJECT_NAME@_BUILT_LOGIC @BUILD_LOGIC@)
 
 if(@PROJECT_NAME@_BUILT_IO)
-    hunter_add_package(Boost COMPONENTS filesystem)
-    find_package(Boost CONFIG REQUIRED filesystem)
+    if(@USE_BOOST_FILESYSTEM@)
+        hunter_add_package(Boost COMPONENTS filesystem)
+        find_package(Boost CONFIG REQUIRED filesystem)
+    endif()
 
     hunter_add_package(raptor2)
     find_package(raptor2 CONFIG REQUIRED)

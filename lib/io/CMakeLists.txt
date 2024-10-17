@@ -6,7 +6,7 @@ cmake_minimum_required(VERSION 3.0...3.12)
 
 set(BOOST_LIBRARIES_TO_USE) # if list empty will still look for Boost::headers
 if(USE_BOOST_FILESYSTEM)
-list(APPEND USE_BOOST_FILESYSTEM filesystem)
+list(APPEND BOOST_LIBRARIES_TO_USE filesystem)
 endif()
 hunter_add_package(BOOST COMPONENTS ${BOOST_LIBRARIES_TO_USE})
 find_package(Boost CONFIG REQUIRED ${BOOST_LIBRARIES_TO_USE})
@@ -62,9 +62,8 @@ target_link_libraries(${LIBRARY_NAME} PUBLIC
     Boost::headers
 )
 if(USE_BOOST_FILESYSTEM)
-target_link_libraries(${LIBRARY_NAME} PRIVATE
-    Boost::filesystem
-)
+target_link_libraries(${LIBRARY_NAME} PRIVATE Boost::filesystem)
+target_compile_definitions(${LIBRARY_NAME} PRIVATE USE_BOOST_FILESYSTEM)
 endif()
 target_link_libraries(${LIBRARY_NAME} PRIVATE
     raptor2
