@@ -8,7 +8,7 @@ set(BOOST_LIBRARIES_TO_USE) # if list empty will still look for Boost::headers
 if(USE_BOOST_FILESYSTEM)
 list(APPEND BOOST_LIBRARIES_TO_USE filesystem)
 endif()
-hunter_add_package(BOOST COMPONENTS ${BOOST_LIBRARIES_TO_USE})
+hunter_add_package(Boost COMPONENTS ${BOOST_LIBRARIES_TO_USE})
 find_package(Boost CONFIG REQUIRED ${BOOST_LIBRARIES_TO_USE})
 if (TARGET Boost::boost AND NOT TARGET Boost::headers)
     # On some configs we get Boost::boost as a target not Boost::headers
