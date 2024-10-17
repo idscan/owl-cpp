@@ -8,7 +8,7 @@ set(PROJECT_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/include")
 
 get_filename_component(LIBRARY_NAME "${CMAKE_CURRENT_LIST_DIR}" NAME)
 
-hunter_add_package(BOOST COMPONENTS) # for Boost::headers
+hunter_add_package(Boost COMPONENTS) # for Boost::headers
 find_package(Boost CONFIG REQUIRED)
 if (TARGET Boost::boost AND NOT TARGET Boost::headers)
     # On some configs we get Boost::boost as a target not Boost::headers

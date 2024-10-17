@@ -13,6 +13,10 @@ if(@PROJECT_NAME@_BUILT_IO)
         find_package(Boost CONFIG REQUIRED filesystem)
     endif()
 
+    # libxml2 is required by raptor2
+    hunter_add_package(libxml2)
+    find_package(LibXml2 REQUIRED)
+
     hunter_add_package(raptor2)
     find_package(raptor2 CONFIG REQUIRED)
 endif()
