@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.0...3.12)
 
 ###############################################################################
 # Target settings
@@ -8,11 +8,18 @@ set(PROJECT_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/include")
 
 get_filename_component(LIBRARY_NAME "${CMAKE_CURRENT_LIST_DIR}" NAME)
 
+hunter_add_package(BOOST COMPONENTS) # for Boost::headers
+find_package(Boost CONFIG REQUIRED)
+if (TARGET Boost::boost AND NOT TARGET Boost::headers)
+    # On some configs we get Boost::boost as a target not Boost::headers
+    add_library(Boost::headers ALIAS Boost::boost)
+endif()
+
 add_library(${LIBRARY_NAME} OBJECT lib_info.cpp)
 target_include_directories(${LIBRARY_NAME} PRIVATE
     "${PROJECT_INCLUDE_DIR}"
-    "${Boost_INCLUDE_DIR}"
 )
+target_link_libraries(${LIBRARY_NAME} PRIVATE Boost::headers)
 target_compile_definitions(${LIBRARY_NAME} PRIVATE
     "OWLCPP_BUILD=0"
     "OWLCPP_NAME=${PROJECT_NAME}"

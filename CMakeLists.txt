@@ -2,10 +2,10 @@
 # Project settings
 ###############################################################################
 
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.0...3.12)
 
 # global definition
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 
 ###############################################################################
 # Initialize Hunter
@@ -37,6 +37,7 @@ else()
     set(Boost_USE_STATIC_LIBS ON)
 endif()
 
+option(USE_BOOST_FILESYSTEM "Use Boost::filesystem instead of std::filesystem" OFF)
 
 hunter_add_package(Boost COMPONENTS system)
 find_package(Boost CONFIG REQUIRED system)

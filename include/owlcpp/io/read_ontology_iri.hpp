@@ -9,8 +9,6 @@ part of owlcpp project.
 #include <string>
 #include <utility>
 
-#include "boost/filesystem/path.hpp"
-
 #include "owlcpp/io/config.hpp"
 
 namespace owlcpp{
@@ -36,7 +34,7 @@ versionIRI declaration after @b search_depth triples
 *******************************************************************************/
 OWLCPP_IO_DECL std::pair<std::string,std::string>
 read_ontology_iri(
-         boost::filesystem::path const& file,
+         const std::string& file,
          const std::size_t search_depth = std::numeric_limits<std::size_t>::max()
 );
 

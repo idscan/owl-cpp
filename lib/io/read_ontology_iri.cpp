@@ -6,7 +6,8 @@ part of owlcpp project.
 #ifndef OWLCPP_IO_SOURCE
 #define OWLCPP_IO_SOURCE
 #endif
-#include "boost/filesystem/fstream.hpp"
+#include "fsystem.hpp"
+
 #include "owlcpp/io/read_ontology_iri.hpp"
 #include "owlcpp/io/raptor_wrapper.hpp"
 #include "raptor_to_iri.hpp"
@@ -28,10 +29,10 @@ std::pair<std::string,std::string> read_ontology_iri(
 /*
 *******************************************************************************/
 std::pair<std::string,std::string> read_ontology_iri(
-         boost::filesystem::path const& file,
+         const std::string& file,
          const std::size_t search_depth
 ) {
-   boost::filesystem::ifstream ifs(file);
+   ifstream ifs(file);
    return read_ontology_iri(ifs, search_depth);
 }
 
