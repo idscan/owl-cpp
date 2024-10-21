@@ -1,14 +1,25 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.0...3.12)
 
 ###############################################################################
 # Third-party libraries
 ###############################################################################
 
-hunter_add_package(Boost COMPONENTS filesystem)
-find_package(Boost CONFIG REQUIRED filesystem)
+set(BOOST_LIBRARIES_TO_USE) # if list empty will still look for Boost::headers
+if(USE_BOOST_FILESYSTEM)
+list(APPEND BOOST_LIBRARIES_TO_USE filesystem)
+endif()
+hunter_add_package(Boost COMPONENTS ${BOOST_LIBRARIES_TO_USE})
+find_package(Boost CONFIG REQUIRED ${BOOST_LIBRARIES_TO_USE})
+if (TARGET Boost::boost AND NOT TARGET Boost::headers)
+    # On some configs we get Boost::boost as a target not Boost::headers
+    add_library(Boost::headers ALIAS Boost::boost)
+endif()
 
 hunter_add_package(raptor2)
 find_package(raptor2 CONFIG REQUIRED)
+
+hunter_add_package(libxml2)
+find_package(LibXml2 REQUIRED) # abnormal case in hunter, finds libxml2::libxml2
 
 ###############################################################################
 # Target settings
@@ -47,11 +58,16 @@ target_include_directories(${LIBRARY_NAME} PUBLIC
     $<INSTALL_INTERFACE:> # Project level include directory will do.
 )
 target_link_libraries(${LIBRARY_NAME} PUBLIC
-    Boost::filesystem
+    Boost::headers
 )
+if(USE_BOOST_FILESYSTEM)
+target_link_libraries(${LIBRARY_NAME} PRIVATE Boost::filesystem)
+target_compile_definitions(${LIBRARY_NAME} PRIVATE USE_BOOST_FILESYSTEM)
+endif()
 target_link_libraries(${LIBRARY_NAME} PRIVATE
     raptor2
 )
+target_include_directories(${LIBRARY_NAME} PRIVATE "${CMAKE_CURRENT_LIST_DIR}/../../shared")
 
 # IO needs core functionality
 add_dependencies(${LIBRARY_NAME} rdf)

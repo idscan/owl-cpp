@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.0...3.12)
 
 ###############################################################################
 # Target settings
@@ -21,7 +21,6 @@ file(GLOB LIBRARY_HEADER_FILES
 add_library(${LIBRARY_NAME} STATIC
     ${LIBRARY_SOURCE_FILES}
     ${LIBRARY_HEADER_FILES}
-    $<TARGET_OBJECTS:lib>
 )
 # Apply Boost naming convention.
 if(Boost_USE_MULTITHREADED)

@@ -6,12 +6,14 @@ part of owlcpp project.
 #ifndef OWLCPP_IO_SOURCE
 #define OWLCPP_IO_SOURCE
 #endif
+
+#include "fsystem.hpp"
+
 #include "owlcpp/io/input.hpp"
 
 #include <iostream>
 #include <set>
-#include "boost/filesystem/fstream.hpp"
-#include "boost/filesystem.hpp"
+
 #include "boost/foreach.hpp"
 #include "boost/range/algorithm/copy.hpp"
 
@@ -78,25 +80,25 @@ void load(
 /*
 *******************************************************************************/
 void load_file(
-         boost::filesystem::path const& file,
+         const std::string& file,
          Triple_store& store,
          Check_id const& check
 ) {
-   const std::string cp = canonical(file).string();
-   boost::filesystem::ifstream ifs(cp);
+   const std::string cp = fs::canonical(file).string();
+   ifstream ifs(cp);
    load(ifs, store, cp, check);
 }
 
 /*
 *******************************************************************************/
 void load_file(
-         boost::filesystem::path const& file,
+         const std::string& file,
          Triple_store& store,
          Catalog const& cat,
          Check_id const& check
 ) {
-   const std::string cp = canonical(file).string();
-   boost::filesystem::ifstream ifs(cp);
+   const std::string cp = fs::canonical(file).string();
+   ifstream ifs(cp);
    load(ifs, store, cat, cp, check);
 }
 

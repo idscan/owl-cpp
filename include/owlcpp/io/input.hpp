@@ -8,8 +8,6 @@ part of owlcpp project.
 #include <iosfwd>
 #include <string>
 
-#include "boost/filesystem/path.hpp"
-
 #include "owlcpp/io/config.hpp"
 #include "owlcpp/io/exception.hpp"
 #include "owlcpp/io/check_ontology_id.hpp"
@@ -67,7 +65,7 @@ If an exception is thrown, the destination triple store remains unchanged.
 *******************************************************************************/
 OWLCPP_IO_DECL
 void load_file(
-         boost::filesystem::path const& file,
+         const std::string& file,
          Triple_store& store,
          Check_id const& check = Check_id()
 );
@@ -84,7 +82,7 @@ If an exception is thrown, the destination triple store remains unchanged.
 *******************************************************************************/
 OWLCPP_IO_DECL
 void load_file(
-         boost::filesystem::path const& file,
+         const std::string& file,
          Triple_store& store,
          Catalog const& cat,
          Check_id const& check = Check_id()
